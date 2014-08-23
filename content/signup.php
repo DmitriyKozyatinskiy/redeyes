@@ -1,6 +1,6 @@
 <h2 class="middle-title">Регистрация на сайте</h2>
 <div class="middle-form--wrapper">
-    <form action="handlers/signup.php" role="form" method="POST">
+    <form action="handlers/signup.php" role="form" method="POST" onSubmit="return Ajax.submitForm(this,event); return false;">
         <div class="form-group">
             <label for="p_name">Имя</label>
             <input type="text" name="p_name" id="p_name" class="form-control" placeholder="Имя" required>
@@ -20,6 +20,7 @@
             </label>
         </div>
         -->
-        <button type="submit" class="btn btn-default">Регистрация</button>
+        <input type="submit" class="btn btn-default" value="Регистрация">
+        <!--<button type="submit" class="btn btn-default">Регистрация</button>-->
     </form>
 </div>
