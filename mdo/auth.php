@@ -19,7 +19,7 @@ class Auth
     {
         $stmt = $this->dbc->stmt_init();
         $stmt->prepare("INSERT INTO USERS(EMAIL, PASSWORD, NAME) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $this->email, $this->password, $this->email);
+        $stmt->bind_param("sss", $this->email, $this->password, $this->name);
         try {
             $stmt->execute();
         } catch (mysqli_sql_exception $e) {
