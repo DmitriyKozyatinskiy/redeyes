@@ -19,21 +19,14 @@ class User
                 $this->is_admin = $this->checkAdmin();
             }
         } else
-            $this->id = 0;
+            $this->id = NULL;
     }
 
     private function checkUserID()
     {
-        $stmt = $this->dbc->stmt_init();
-        $stmt->prepare('SELECT ID FROM USERS WHERE SECURITY_ID = ? AND SESSION_ID = ?');
-        $stmt->bind_param("ss", $this->security_id, $this->session_id);
-        try {
-            $stmt->execute();
-        } catch (mysqli_sql_exception $e) {
-            exit($e->getMessage());
-        }
-        $result = $stmt->get_result();
-        $stmt->close();
+        $query = 'SELECT ID FROM USERS WHERE SECURITY_ID = ? AND SESSION_ID = ?';
+        $stmt = new stmt($dbc, $query, array('ss', $this->security_id, $this->session_id));
+        $result = $stmt->execute(true);
         if ($result->num_rows)
             return $result->fetch_row()[0];
         else
@@ -42,12 +35,10 @@ class User
 
     private function checkAdmin()
     {
+        $query = 'SELECT COUNT(*) FROM ADMINS WHERE USER_ID = ?';
         $stmt = $this->dbc->stmt_init();
-        $stmt->prepare("SELECT COUNT(*) FROM ADMINS WHERE USER_ID = ?");
-        $stmt->bind_param("i", $this->id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $stmt = new stmt($dbc, $query, array('i', $this->id));
+        $result = $stmt->execute(true);
         if ($result->fetch_row()[0] > 0)
             return true;
         else
