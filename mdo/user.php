@@ -29,8 +29,8 @@ class User
         $query = 'SELECT ID, NAME FROM USERS WHERE SECURITY_ID = ? AND SESSION_ID = ?';
         $stmt = new stmt($this->dbc, $query, array('ss', &$this->security_id, &$this->session_id));
         $result = $stmt->execute(true);
-        if ($result) {
-            $result = $result->fetch_assoc();
+        $result = $result->fetch_assoc();
+        if ($result['ID'] != '') {
             $this->id = $result['ID'];
             $this->name = $result['NAME'];
         } else {
@@ -52,7 +52,11 @@ class User
 
     public function isRegisteredUser()
     {
-        return ($this->id) ? true : false;
+        echo $this->id;
+        if (is_null($this->id))
+            return false;
+        else
+            return true;
     }
 
     public function isAdmin()
@@ -69,5 +73,25 @@ class User
     public function getUserName()
     {
         return $this->name;
+    }
+
+    public function exitIfRegistered($go_to = null)
+    {
+        if (!is_null($this->id)) {
+            $this->dbc->close();
+            if (!is_null($go_to))
+                echo '<script>document.location.href="', $go_to, '.php"</script>';
+            exit;
+        }
+    }
+
+    public function exitIfNotRegistered($go_to = null)
+    {
+        if (is_null($this->id)) {
+            $this->dbc->close();
+            if (!is_null($go_to))
+                echo '<script>document.location.href="', $go_to, '.php"</script>';
+            exit;
+        }
     }
 }

@@ -42,7 +42,6 @@ class stmt
                     return $result;
                 }
             } else {
-                echo
                 $this->stmt->close();
                 return 1;
             }
