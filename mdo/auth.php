@@ -10,13 +10,14 @@ class Auth
     public function __construct($dbc, $email, $password, $name = '')
     {
         $this->dbc = $dbc;
-        $this->email = $this->dbc->real_escape_string($email);
-        $this->name = $this->dbc->real_escape_string($name);
+        $this->email = $email;
+        $this->name = $name;
         $this->password = MD5($password);
     }
 
     public function signUp()
     {
+        if(is_null($this->email) || is_null($this->password) || is_null($this->name)) exit;
         $query = 'INSERT INTO USERS(EMAIL, PASSWORD, NAME) VALUES (?, ?, ?)';
         $stmt = new stmt($this->dbc, $query, array('sss', &$this->email, &$this->password, &$this->name));
         return $stmt->execute();
@@ -24,6 +25,7 @@ class Auth
 
     public function signIn()
     {
+        if(is_null($this->email) || is_null($this->password)) exit;
         $query = 'SELECT SESSION_ID, SECURITY_ID FROM USERS WHERE EMAIL = ? AND PASSWORD = ?';
         $stmt = new stmt($this->dbc, $query, array('ss', &$this->email, &$this->password));
         $result = $stmt->execute(true);
