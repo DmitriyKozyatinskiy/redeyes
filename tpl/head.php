@@ -7,9 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta charset=utf-8>
-    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/styles-custom.css" rel="stylesheet">
+    <link href="css/lib/nprogress.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

@@ -1,5 +1,4 @@
 <?php
-
 function middleTitle($text)
 {
     echo '<h2 class="middle-title">', $text, '</h2>';
