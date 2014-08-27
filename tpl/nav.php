@@ -40,8 +40,8 @@ $user = new mdo\User($dbc);
             ';
         } else {
             echo '
-                <li><a href="signin.php">Вход</a></li>
-                <li><a href="signup.php">Регистрация</a></li>
+                <li><a href="signin.php" id="signin_btn">Вход</a></li>
+                <li><a href="signup.php" id="signup_btn">Регистрация</a></li>
             ';
         }
         ?>
