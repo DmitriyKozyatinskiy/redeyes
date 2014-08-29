@@ -2,6 +2,7 @@
 
 function connect()
 {
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
     mysqli_report(MYSQLI_REPORT_STRICT);
     $mysqli = new mysqli('localhost', 'root', '', 'test_project');
     $mysqli->set_charset('utf8');

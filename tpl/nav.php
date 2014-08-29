@@ -33,8 +33,8 @@ $user = new mdo\User($dbc);
                 <li class="dropdown">
                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">', $user->getUserName(), '<span class="caret"></span></a>
                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Настройки</a></li>
-                      <li><a href="#">Выход</a></li>
+                      <li><a href="profile.php" id="profile_btn">Настройки</a></li>
+                      <li><a href="exit.php" id="exit_btn">Выход</a></li>
                    </ul>
                 </li>
             ';

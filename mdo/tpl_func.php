@@ -1,7 +1,8 @@
 <?php
 function middleTitle($text)
 {
-    echo '<h2 class="middle-title">', $text, '</h2>';
+    if (!isset($_GET['ajaxLoad']))
+        echo '<h2 class="middle-title">', $text, '</h2>';
 }
 
 function formOpen($data)

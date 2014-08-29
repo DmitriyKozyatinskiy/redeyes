@@ -24,27 +24,27 @@ var Ajax = (function() {
                     message: data,
                     title: title,
                     buttons: {
-                        success: {
-                            label: btn_ok_lbl,
-                            className: "btn-success",
-                            callback: function() {
-                                Example.show("great success");
-                            }
-                        }
-                        // danger: {
-                        //     label: "Danger!",
-                        //     className: "btn-danger",
-                        //     callback: function() {
-                        //         Example.show("uh oh, look out!");
+                        //     success: {
+                        //         label: btn_ok_lbl,
+                        //         className: "btn-success",
+                        //         callback: function() {
+                        //             Example.show("great success");
+                        //         }
                         //     }
-                        // },
-                        // main: {
-                        //     label: "Click ME!",
-                        //     className: "btn-primary",
-                        //     callback: function() {
-                        //         Example.show("Primary button");
-                        //     }
-                        // }
+                        //     // danger: {
+                        //     //     label: "Danger!",
+                        //     //     className: "btn-danger",
+                        //     //     callback: function() {
+                        //     //         Example.show("uh oh, look out!");
+                        //     //     }
+                        //     // },
+                        //     // main: {
+                        //     //     label: "Click ME!",
+                        //     //     className: "btn-primary",
+                        //     //     callback: function() {
+                        //     //         Example.show("Primary button");
+                        //     //     }
+                        //     // }
                     }
                 });
             });
